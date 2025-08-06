@@ -1,37 +1,39 @@
 import java.util.*;
-class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int size = sc.nextInt();
-        int[][] arr = new int[size][size];
-        int num = 1;
-        int top = 0, bottom = size - 1;
-        int left = 0, right = size - 1;
-
-        while (top <= bottom && left <= right) {
-            for (int i = left; i <= right; i++) {
-                arr[top][i] = num++;
-            }
-            top++;
-            for (int i = top; i <= bottom; i++) {
-                arr[i][right] = num++;
-            }
-            right--;
-            if (top <= bottom) {
-                for (int i = right; i >= left; i--) {
-                    arr[bottom][i] = num++;
-                }
-                bottom--;
-            }
-            if (left <= right) {
-                for (int i = bottom; i >= top; i--) {
-                    arr[i][left] = num++;
-                }
-                left++;
-            }
-        }
-        return arr;
-    }
-                System.out.print(arr[size][size] + "\t");
-            System.out.println();
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int size=sc.nextInt();
+		int mat[][]=new int[size][size];
+		int n=1;
+		int top=0,bottom=size-1,left=0,right=size-1;
+		while(n<=size*size){
+		    for(int i=left;i<=right;i++){
+		        mat[top][i]=n;
+		        n++;
+		    }
+		    top++;
+		    for(int i=top;i<=bottom;i++){
+		        mat[i][right]=n;
+		        n++;
+		    }
+		    right--;
+		     for(int i=right;i>=left;i--){
+		        mat[bottom][i]=n;
+		        n++;
+		    }
+		    bottom--;
+		     for(int i=bottom;i>=top;i--){
+		        mat[i][left]=n;
+		        n++;
+		    }
+		    left++;
+		}
+		for(int i=0;i<size;i++){
+		    for(int j=0;j<size;j++){
+		        System.out.print(mat[i][j]+" ");
+		    }
+		    System.out.println();
+		}
+	}
 }
